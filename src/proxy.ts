@@ -2,7 +2,7 @@ import { createServerClient } from '@supabase/ssr'
 import { NextResponse, type NextRequest } from 'next/server'
 import type { Database } from '@/types/database'
 
-export async function middleware(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   let supabaseResponse = NextResponse.next({
     request,
   })
@@ -44,35 +44,7 @@ export async function middleware(request: NextRequest) {
   if (request.nextUrl.pathname.startsWith('/admin')) {
     if (!user) {
       const url = request.nextUrl.clone()
-      url.pathname = '/admin/login'
-      return NextResponse.redirect(url)
-    }
-
-    // Check if user is admin
-    const { data: profile } = (await supabase
-      .from('profiles')
-      .select('is_admin')
-      .eq('user_id', user.id)
-      .single()) as { data: { is_admin?: boolean } | null }
-
-    if (!profile?.is_admin && request.nextUrl.pathname !== '/admin/login') {
-      const url = request.nextUrl.clone()
-      url.pathname = '/403'
-      return NextResponse.redirect(url)
-    }
-  }
-
-  // If logged in admin tries to access login page, redirect to dashboard
-  if (request.nextUrl.pathname === '/admin/login' && user) {
-    const { data: profile } = (await supabase
-      .from('profiles')
-      .select('is_admin')
-      .eq('user_id', user.id)
-      .single()) as { data: { is_admin?: boolean } | null }
-
-    if (profile?.is_admin) {
-      const url = request.nextUrl.clone()
-      url.pathname = '/admin'
+      url.pathname = '/login'
       return NextResponse.redirect(url)
     }
   }
