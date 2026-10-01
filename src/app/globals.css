@@ -50,7 +50,7 @@ html {
 }
 
 body {
-  background-color: var(--bg-main);
+  background-color: transparent; /* video layer beneath shows through */
   color: var(--text-primary);
   font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   line-height: 1.65;
@@ -117,15 +117,17 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Primary card — used for main content blocks */
 .studio-card {
-  background: var(--bg-card);
+  background: rgba(15, 17, 23, 0.88);
   border: 1px solid var(--bg-card-border);
   border-radius: 20px;
   transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 .studio-card:hover {
-  background: var(--bg-card-hover);
+  background: rgba(19, 21, 31, 0.92);
   border-color: var(--border-hover);
   transform: translateY(-3px);
   box-shadow: 0 16px 48px -12px rgba(0, 0, 0, 0.6), 0 0 24px -8px rgba(139, 92, 246, 0.12);
@@ -133,15 +135,17 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Secondary card — same but slightly different surface */
 .playground-card {
-  background: var(--bg-card);
+  background: rgba(15, 17, 23, 0.85);
   border: 1px solid var(--bg-card-border);
   border-radius: 20px;
   transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .playground-card:hover {
-  background: var(--bg-card-hover);
+  background: rgba(19, 21, 31, 0.9);
   border-color: var(--border-hover);
 }
 
@@ -254,7 +258,7 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 50%;
   filter: blur(120px);
   pointer-events: none;
-  opacity: 0.3;
+  opacity: 0.15; /* reduced — video is now the primary bg */
 }
 
 /* ============================================================
@@ -317,5 +321,10 @@ h1, h2, h3, h4, h5, h6 {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+
+  /* Pause the background video for reduced-motion users */
+  video[aria-hidden="true"] {
+    animation-play-state: paused !important;
   }
 }

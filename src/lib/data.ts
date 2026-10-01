@@ -1,54 +1,53 @@
 // ============================================================
-// CODEMACHAN — THE FRIENDLY SOFTWARE STUDIO DATA & CONTENT SYSTEM
+// CODEMACHAN — SOFTWARE STUDIO DATA & CONTENT SYSTEM
 // ============================================================
 
 export const PROFILE = {
   brandName: "CODEMACHAN",
-  studioTitle: "The Friendly Software Studio",
-  name: "Aravind",
-  firstName: "Aravind",
-  role: "Lead Software Architect & Student Builder",
+  studioTitle: "Software Studio for Students & Creators",
+  name: "Aravint",
+  firstName: "Aravint",
+  role: "Founder & Developer",
   
   // Hero headlines
   headline: "Got an idea?",
   secondaryHeadline: "Let's build the thing.",
-  supportingText: "Websites, apps, student projects and crazy ideas — we turn them into something that actually works.",
-  playfulSubtext: "Yes, even that idea you have in your Notes app.",
+  supportingText: "Websites, apps, student projects and startup ideas — turned into products that actually work.",
+  playfulSubtext: "Yes, even that idea currently living in your Notes app.",
   
-  // Live Status Indicator (driven by DB/Admin)
+  // Live Status Indicator
   availability: "available" as "available" | "busy" | "unavailable",
   availabilityStatus: "● Currently building stuff",
   availabilityText: "Online & taking new projects",
   
-  // Student & Persona Details
-  education: "3rd Year Computer Science & Engineering",
+  // Personal details
+  education: "Computer Science & Engineering",
   course: "B.Tech Computer Science",
-  yearOfStudy: "3rd Year CS Student",
+  yearOfStudy: "CS Student",
   institution: "College of Engineering",
-  location: "India (Serving Students & Creators Globally)",
+  location: "India",
   
-  // Profile details for "Who's behind CodeMachan?"
-  currently: "Building useful digital products",
-  usuallyFound: "VS Code + Chrome + Coffee",
+  // About page details
+  currently: "Building CodeMachan",
+  usuallyFound: "VS Code + Chrome + way too many tabs",
   currentObsession: "Making websites less boring",
   
   loves: [
-    "You bring the idea. We figure out the code.",
+    "You bring the idea — I figure out the code.",
     "Clean UI that doesn't hurt your eyes",
     "Shipping before the deadline panic begins",
     "Building things people actually use",
   ],
   hates: [
     "Corporate jargon & bloated templates",
-    "UI that looks like a 2004 government portal",
+    "UI that looks like a 2003 government portal",
     "Over-engineered setups that break at 3 AM",
   ],
   
-  bio: "CodeMachan is a software development studio focused on turning ideas into useful digital products. Founded by Aravind, a 3rd-year CS student, we combine modern software engineering precision with a fresh, creative student brand identity.",
-  bioExtended: "Whether your submission deadline is next week, you're launching a campus startup, or you're finally building that product concept in your head — we handle design, backend architecture, and seamless cloud deployment.",
+  bio: "CodeMachan is a software studio focused on turning ideas into useful digital products. I combine modern software engineering with a student-first approach to building websites, web apps, and MVPs.",
+  bioExtended: "Whether your submission deadline is next week, you're launching a campus startup, or you're finally building that concept from your Notes app — I handle design, backend architecture, and deployment.",
   
   email: "codemachan@gmail.com",
-  phone: "+91 98765 43210",
   githubUrl: "https://github.com/yourusername",
   linkedinUrl: "https://linkedin.com/in/yourusername",
   twitterUrl: "https://twitter.com/codemachan",

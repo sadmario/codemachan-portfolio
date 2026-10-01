@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { PlaygroundBackground } from "@/components/ui/PlaygroundBackground";
+import { VideoBackground } from "@/components/ui/VideoBackground";
 import { CustomCursor } from "@/components/ui/CustomCursor";
+import { AuthProvider } from "@/components/providers/AuthProvider";
 
 export const metadata: Metadata = {
   title: {
@@ -23,8 +24,12 @@ export const metadata: Metadata = {
     "Supabase developer",
     "MVP prototyping",
   ],
-  authors: [{ name: "Aravind (CodeMachan)" }],
-  creator: "CodeMachan",
+  authors: [{ name: "Aravint (CodeMachan)" }],
+  icons: {
+    icon: "/logo.png",
+    shortcut: "/logo.png",
+    apple: "/logo.png",
+  },
   openGraph: {
     type: "website",
     locale: "en_IN",
@@ -58,12 +63,14 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
       </head>
-      <body className="relative bg-[#090a0f] text-[#f8fafc] min-h-screen selection:bg-violet-500/30 selection:text-white">
-        <PlaygroundBackground />
-        <CustomCursor />
-        <Navbar />
-        <main className="relative z-10">{children}</main>
-        <Footer />
+      <body className="relative text-[#f8fafc] min-h-screen selection:bg-violet-500/30 selection:text-white">
+        <AuthProvider>
+          <VideoBackground />
+          <CustomCursor />
+          <Navbar />
+          <main className="relative z-10">{children}</main>
+          <Footer />
+        </AuthProvider>
       </body>
     </html>
   );
